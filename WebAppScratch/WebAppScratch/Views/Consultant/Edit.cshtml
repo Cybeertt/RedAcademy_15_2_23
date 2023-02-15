@@ -1,0 +1,68 @@
+﻿@model Consultant
+
+@{
+    ViewData["Title"] = "Edit consultant";
+}
+
+<partial name="_GeneralNotice" />
+
+<div class="card mx-auto" style="max-width: 600px; margin-top: 100px;border: 1px solid #000">
+
+    <form asp-controller="Consultants" asp-action="Edit">
+
+        <div class="card-header text-center">
+            <h2>@ViewData["Title"]</h2>
+        </div>
+        <div class="card-body">
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Role" class="form-label"></label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image" class="form-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Team" class="form-label"></label>
+                <input asp-for="Team" class="form-control" />
+                <span asp-validation-for="Team" class="text-danger"></span>
+            </div>
+
+
+        </div>
+        <div class="card-footer text-center">
+            <input type="submit" value="Edit" class="btn btn-primary" style="width:120px" />
+            <a asp-controller="Consultants" asp-action="Index" class="btn btn-outline-secondary" style="width:120px">Cancel</a>
+        </div>
+    </form>
+
+
+</div>
+
+
+@*@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}*@
