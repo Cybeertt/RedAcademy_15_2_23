@@ -25,23 +25,37 @@ namespace RedAcademySite.Controllers
         }
 
         [HttpGet]
-        [Route("Details")]
-        public IActionResult Details()
+        [Route("Detail")]
+        public IActionResult Details(int id)
         {
-            return View();
+            var consultant = GetConsultantById(id);
+
+            if (GetConsultantById(id) == null)
+                return RedirectToAction("Index");
+
+            return View(consultant);
         }
 
         [HttpGet]
         [Route("Edit")]
         public IActionResult Edit(int id)
         {
-            var consultant = GetConsultants().ToList().FirstOrDefault(c => c.Id == id);
+            var consultant = GetConsultantById(id);
 
-            if (consultant == null)
-            {
-                TempData["error"] = "There was an error with the ID provided";
+            if (GetConsultantById(id) == null)
                 return RedirectToAction("Index");
-            }
+
+            return View(consultant);
+        }
+
+        [HttpGet]
+        [Route("Delete")]
+        public IActionResult Delete(int id)
+        {
+            var consultant = GetConsultantById(id);
+
+            if (GetConsultantById(id) == null)
+                return RedirectToAction("Index");
 
             return View(consultant);
         }
@@ -59,10 +73,21 @@ namespace RedAcademySite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Consultant consultant)
         {
             return RedirectToAction("Index");
         }
+
+        private Consultant GetConsultantById(int id) 
+        {
+            var consultant = GetConsultants().ToList().FirstOrDefault(c => c.Id == id);
+           
+            if (consultant == null)
+                TempData["error"] = "There was an error with the ID provided";
+
+            return consultant;
+        }
+
 
         private List<Consultant> GetConsultants()
         {
