@@ -1,4 +1,4 @@
-namespace WebAppScratch.Models
+namespace RedAcademySite.Models
 {
     public class ErrorViewModel
     {

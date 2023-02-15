@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using WebAppScratch.Models;
+using RedAcademySite.Models;
 
-namespace WebAppScratch.Controllers
+namespace RedAcademySite.Controllers
 {
     public class HomeController : Controller
     {
