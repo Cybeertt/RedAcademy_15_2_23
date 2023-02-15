@@ -72,6 +72,8 @@ namespace RedAcademySite.Controllers
 
             TempData["success"] = "The consultant " + consultant.Name + " with ID " + consultant.Id + " was successfuly added!";
             return RedirectToAction("Index");
+
+            
         }
 
         [HttpPost]
@@ -92,9 +94,9 @@ namespace RedAcademySite.Controllers
         [Route("Delete")]
         public IActionResult Delete(Consultant consultant)
         {
-            if (!ModelState.IsValid)
+            if (consultant.Id == null)
             {
-                TempData["error"] = "There was an error with the Add opertation";
+                TempData["error"] = "There was an error with the Delete opertation";
                 return View(consultant);
             }
 
