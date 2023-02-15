@@ -4,19 +4,27 @@
     ViewData["Title"] = "List Consultants";
 }
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+@*<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+</style>*@
 
 <h1>@ViewData["Title"]</h1>
 
 <a asp-controller="Consultant" asp-action="Add" class="btn btn-primary" style="width:120px">Add</a>
 
-<div class="container" style=" padding-top: 10px">
+<div class="container" style=" padding-top: 5px">
     <div class="row">
         <br />
         @{
             foreach (var consultant in Model)
             {
-                <div class="col-md-4">
+                <div class="col-md-3">
 
                     <div href="#" class="card card-product-grid" style="border: 1px solid #000">
                         <div class="card-header text-center">
@@ -25,16 +33,24 @@
                         <figcaption class="info-wrap">
                             <small class="card-text">
                                 <b>
-                                    <img src=@consultant.Image class="w3-circle" 
-                                    //{ border-radius: 50%; } 
-                                     />
-
+                                
+                                    <img src=@consultant.Image style = "display: block;
+                                      margin-left: auto;
+                                      margin-right: auto;
+                                      border-radius: 50%;"/>
                                 </b><br />
-                                <b>Role: @consultant.Role</b><br />
-                                <u>Email:</u><br /><i>@consultant.Email</i><br /><br />
-                                <b>Team: @consultant.Team</b><br />
+                                <div class="text-center">
+                                    <span style="font-weight:bold">@consultant.Role</span><br />
+                                    <span style="margin:0 auto;">(@consultant.Team)</span><br />
+                                </div>
+                                
                             </small>
                         </figcaption>
+                        <div class="card-footer price mt-1">
+                            <h6>
+                                @consultant.Email
+                            </h6>
+                        </div>
                         
                     </div>
                 </div>
