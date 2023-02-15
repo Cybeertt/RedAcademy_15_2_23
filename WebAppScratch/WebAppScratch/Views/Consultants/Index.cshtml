@@ -1,0 +1,37 @@
+﻿@model IEnumerable<RedAcademySite.Models.Consultant>
+
+@{
+    ViewData["Title"] = "List Consultants";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a asp-controller="Consultants" asp-action="Add" class="btn btn-primary" style="width:120px">+ Add</a>
+
+<div class="container" style=" padding-top: 10px">
+    <div class="row">
+        <br />
+        @{
+            foreach (var consultant in Model)
+            {
+                <div class="col-md-4">
+
+                    <div href="#" class="card card-product-grid" style="border: 1px solid #000">
+                        <div class="card-header text-center">
+                            <h5 style="color:red"> @consultant.Name.ToUpper() - Id: @consultant.Id</h5>
+                        </div>
+                        <figcaption class="info-wrap">
+                            <small class="card-text">
+                                <b>Role: @consultant.Role</b><br />
+                                <u>Email:</u><br /><i>@consultant.Email</i><br /><br />
+                                <b>Image: @consultant.Image</b><br />
+                                <b>Team: @consultant.Team</b><br />
+                            </small>
+                        </figcaption>
+                        
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
