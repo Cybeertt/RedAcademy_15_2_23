@@ -63,18 +63,30 @@ namespace RedAcademySite.Controllers
         [HttpPost]
         public IActionResult Add(Consultant consultant)
         {
+            if(!ModelState.IsValid)
+                TempData["error"] = "There was an error with the Add opertation";
+
+            TempData["success"] = "The consultant " + consultant.Name + " with ID " + consultant.Id + " was successfuly added!";
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Edit(int id, Consultant consultant)
         {
+            if (!ModelState.IsValid)
+                TempData["error"] = "There was an error with the Add opertation";
+
+            TempData["success"] = "The consultant " + consultant.Name + " with ID " + consultant.Id + " was successfuly edited!";
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Delete(Consultant consultant)
         {
+            if (!ModelState.IsValid)
+                TempData["error"] = "There was an error with the Add opertation";
+
+            TempData["success"] = "The consultant " + consultant.Name + " with ID " + consultant.Id + " was successfuly deleted!";
             return RedirectToAction("Index");
         }
 
