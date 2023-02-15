@@ -4,6 +4,8 @@
     ViewData["Title"] = "List Consultants";
 }
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <h1>@ViewData["Title"]</h1>
 
 <a asp-controller="Consultant" asp-action="Add" class="btn btn-primary" style="width:120px">Add</a>
@@ -23,8 +25,9 @@
                         <figcaption class="info-wrap">
                             <small class="card-text">
                                 <b>
-                                    <img { src=@consultant.Image
-                                     border-radius: 50%; } />
+                                    <img src=@consultant.Image class="w3-circle" 
+                                    //{ border-radius: 50%; } 
+                                     />
 
                                 </b><br />
                                 <b>Role: @consultant.Role</b><br />
