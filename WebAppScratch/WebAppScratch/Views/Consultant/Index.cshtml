@@ -19,25 +19,26 @@ img {
 <a asp-controller="Consultant" asp-action="Add" class="btn btn-primary" style="width:120px">Add</a>
 
 <div class="container" style=" padding-top: 5px">
-    <div class="row">
+    <div class="row gy-3">
         <br />
         @{
             foreach (var consultant in Model)
             {
                 <div class="col-md-3">
 
-                    <div href="#" class="card card-product-grid" style="border: 1px solid #000">
+                    <div href="#" class="card card-product-grid h-100" style="border: 1px solid #000">
                         <div class="card-header text-center">
                             <h5 style="color:red"> @consultant.Name.ToUpper() - Id: @consultant.Id</h5>
                         </div>
-                        <figcaption class="info-wrap">
+                        <figcaption class="info-wrap h-100">
                             <small class="card-text">
                                 <b>
 
                                     <img src=@consultant.Image style="display: block;
                                           margin-left: auto;
                                           margin-right: auto;
-                                          border-radius: 50%;" />
+                                          border-radius: 50%;
+                                          height: 50%" />
                                 </b><br />
                                 <div class="text-center">
                                     <span style="font-weight:bold">@consultant.Role</span><br />
@@ -45,7 +46,7 @@ img {
                                 </div>
                             </small>
 
-                            <div class="text-center mb-1 mt-3">
+                            <div class="text-center mb-2 mt-3">
                                 <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Details", "Consultant", new { id = consultant.Id })'" margin="auto">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
